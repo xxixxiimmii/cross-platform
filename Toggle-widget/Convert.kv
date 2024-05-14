@@ -1,0 +1,56 @@
+<UI>:
+    id:Scr_manager
+    Scr_1:
+    Scr_2:
+
+<Scr_2>:
+    name:"Scr_2"
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text:"กลับหน้าแรก"
+            font_name:"tahoma"
+            on_press:app.root.current='Scr_1'
+            pos_hint:{'center_x' : 0.90,'center_y':0.85} #ปรับขยับชิดซ้ายขวา กลาง เรื่อยๆ 
+            size_hint:0.25,0.10
+        TextInput:
+            id:txt_number
+            font_size: 20
+            size_hint:(1,0.35)
+            hint_text:"input number"  
+        BoxLayout:
+            ToggleButton:
+                text:"base2"      
+                groub:'convert_mode'
+                on_press: root.convert(*args)
+            ToggleButton:
+                text:"base8"      
+                groub:'convert_mode'
+                on_press: root.convert(*args)
+            ToggleButton:
+                text:"base16"      
+                groub:'convert_mode'
+                on_press: root.convert(*args)
+        Label:      
+            id:lbl_output
+            #text:"bmi ="
+       
+<Scr_1>:
+    name:'Scr_1'
+    canvas.before:
+        Rectangle:
+            source:"1.jpg"
+            size: root.width, root.height
+            #ปรับตาม กว้างสูงของ Root
+            pos: self.pos
+    #BoxLayout:
+        #orientation: 'vertical'
+        #Image:
+            #source: "1.jpg"
+    Button:
+        text:"แปลงฐานข้อมูล"
+        font_name:"tahoma" 
+        color: 'yellow'
+        on_press:app.root.current='Scr_2'
+        pos_hint:{'center_x' : 0.6,'center_y':0.1} #ปรับขยับชิดซ้ายขวา กลาง เรื่อยๆ 
+        size_hint:0.25,0.10
